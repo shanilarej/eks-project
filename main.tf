@@ -1,5 +1,5 @@
 # IAM Role for the EKS Cluster
-resource "aws_iam_role" "cluster-role1" {
+resource "aws_iam_role" "cluster-role11" {
   name = "cluster-role1"
 
   assume_role_policy = jsonencode({
@@ -59,7 +59,7 @@ resource "aws_iam_role_policy_attachment" "registry-policy1" {
 # EKS Cluster
 resource "aws_eks_cluster" "eks-cluster1" {
   name     = "k8-cluster1"
-  role_arn = aws_iam_role.cluster-role1.arn
+  role_arn = aws_iam_role.cluster-role11.arn
   version  = "1.31"
 
   vpc_config {

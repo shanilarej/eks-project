@@ -79,8 +79,8 @@ resource "aws_eks_node_group" "k8-cluster-node-group1" {
   subnet_ids      = ["subnet-062cac3831aa2af25", "subnet-09bb828737a4db56e"]
 
   scaling_config {
-    desired_size = 3
-    min_size     = 2
+    desired_size = 2
+    min_size     = 1
     max_size     = 5
   }
 

@@ -1,4 +1,16 @@
-stages {
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'TERRAFORM_ACTION', choices: ['apply', 'destroy', 'plan'], description: 'Select Terraform action to perform')
+        string(name: 'USER_NAME', defaultValue: 'shan', description: 'Specify who is running the code')
+    }
+
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('jen4')
+    }
+
+    stages {
         stage('Code checkout from Git') {
             steps {
                 checkout scmGit(
@@ -42,3 +54,4 @@ stages {
         }
     }
 }
+
